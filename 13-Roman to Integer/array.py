@@ -13,4 +13,3 @@ class Solution:
             last = s[i]
 
         return total
-        
