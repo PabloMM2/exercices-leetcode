@@ -1,14 +1,12 @@
 func hasCycle(head *ListNode) bool {
-	var values = make(map[*ListNode]bool)
-	current := head
-	for current != nil {
-		if _, ok := values[current]; ok {
+	var nodes map[*ListNode]bool = make(map[*ListNode]bool)
+	for head != nil {
+		_, ok := nodes[head]
+		if ok {
 			return true
 		}
-
-		values[current] = true
-		current = current.Next
+		nodes[head] = true
+		head = head.Next
 	}
-
 	return false
 }

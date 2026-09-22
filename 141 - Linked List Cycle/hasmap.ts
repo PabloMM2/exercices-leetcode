@@ -1,5 +1,5 @@
-var hasCycle = function(head) {
-    let nodes = new Map();
+function hasCycle(head: ListNode | null): boolean {
+    let nodes : Map<ListNode, boolean> = new Map();
     while(head != null) {
         if(nodes.get(head)) {
             return true;

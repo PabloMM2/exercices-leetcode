@@ -9,17 +9,14 @@ function ListNode(val, next) {
  * @return {ListNode}
  */
 var middleNode = function(head) {
+    let start = new ListNode(0, head);
+    let slow = start;
+    let fast = start;
 
-    let values = new Map();
-    let current = head;
-    let count = 0;
-
-    while(current != null) {
-        values.set(count, current)
-        count++
-        current = current.next
+    while(fast != null){
+        slow = slow.next;
+        fast = fast.next == null ? fast.next : fast.next.next;
     }
-
-    let middle = parseInt(count / 2)
-    return values.get(middle)
+    
+    return slow
 };
